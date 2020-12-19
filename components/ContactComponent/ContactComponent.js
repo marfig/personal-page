@@ -1,7 +1,8 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import ButtonPimary from "../ButtonPrimary/ButtonPimary";
 import { toast } from "react-toastify";
+import ButtonPimary from "../ButtonPrimary/ButtonPimary";
+import SimpleMap from "../Maps/SimpleMap";
 
 export default function ContactComponent() {
   const formik = useFormik({
@@ -12,6 +13,7 @@ export default function ContactComponent() {
       toast.info("One moment please. Your message is being sent...");
       setTimeout(function () {
         toast.success("Message sended. Thank you for your contact!");
+        formik.resetForm();
       }, 3000);
     },
   });
@@ -33,6 +35,7 @@ export default function ContactComponent() {
               type="text"
               name="name"
               placeholder="Name"
+              value={formik.values.name}
               onChange={formik.handleChange}
             />
 
@@ -42,6 +45,7 @@ export default function ContactComponent() {
               type="email"
               name="email"
               placeholder="Email"
+              value={formik.values.email}
               onChange={formik.handleChange}
             />
             <input
@@ -50,12 +54,14 @@ export default function ContactComponent() {
               type="text"
               name="subject"
               placeholder="Subject"
+              value={formik.values.subject}
               onChange={formik.handleChange}
             />
             <textarea
               className={formik.errors.message ? "has-error" : ""}
               name="message"
               placeholder="Message"
+              value={formik.values.message}
               onChange={formik.handleChange}
             ></textarea>
             <div className="actions">
@@ -63,7 +69,9 @@ export default function ContactComponent() {
             </div>
           </form>
         </div>
-        <div className="contact-map"></div>
+        <div className="contact-map">
+          <SimpleMap />
+        </div>
       </div>
     </section>
   );
