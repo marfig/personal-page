@@ -1,0 +1,42 @@
+nav {
+  padding-top: 120px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+  }
+
+  a {
+    color: white;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 35px;
+  }
+
+  a:hover {
+    color: $primary;
+    vertical-align: middle;
+  }
+
+  li {
+    height: 100px;
+
+    span {
+      font-size: 16px;
+    }
+  }
+
+  .active {
+    color: $primary;
+  }
+}
+
+//   header .sidebar nav a:hover > i {
+//     display: none;
+//   }
+//   header .sidebar nav a:hover > span {
+//     display: block;
+//   }

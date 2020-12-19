@@ -1,0 +1,17 @@
+// Google fonts
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:ital,wght@0,200;0,500;1,400&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap);
+
+@import "./colors.scss";
+
+// Layouts
+@import "../layouts/BasicLayout/BasicLayout.scss";
+
+// Components
+@import "../components/Header/Header.scss";
+@import "../components/Header/MainMenu/MainMenu.scss";
+@import "../components/Header/SocialMenu/SocialMenu.scss";
+@import "../components/HomeComponent/HomeComponent.scss";
+@import "../components/AboutComponent/AboutComponent.scss";
+@import "../components/PortfolioComponent/PortfolioComponent.scss";
+@import "../components/ContactComponent/ContactComponent.scss";

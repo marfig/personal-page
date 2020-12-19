@@ -1,0 +1,19 @@
+.social-menu {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    height: 35px;
+    text-align: center;
+  }
+
+  a {
+    color: white;
+    font-size: 15px;
+  }
+
+  a:hover {
+    color: $primary;
+    vertical-align: middle;
+  }
+}

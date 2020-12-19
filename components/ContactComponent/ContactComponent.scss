@@ -1,0 +1,62 @@
+#contact {
+  display: flex;
+
+  h1 {
+    color: $primary;
+    font-weight: bold;
+    font-size: 62px;
+  }
+
+  .contact-form {
+    flex: 1;
+  }
+
+  .contact-map {
+    flex: 1;
+  }
+
+  form {
+    display: grid;
+    grid-template:
+      "name email"
+      "subject subject"
+      "message message";
+    gap: 8px;
+
+    input[name="name"] {
+      grid-area: name;
+    }
+
+    input[name="email"] {
+      grid-area: email;
+    }
+
+    input[name="subject"] {
+      grid-area: subject;
+    }
+
+    textarea[name="message"] {
+      grid-area: message;
+    }
+
+    input,
+    textarea {
+      background-color: $dark-transparent;
+      color: lightgray;
+      border: none;
+      font-size: 16px;
+      font-family: "Raleway", sans-serif;
+      padding-left: 15px;
+    }
+
+    input {
+      height: 50px;
+    }
+
+    textarea {
+      padding-top: 15px;
+      height: 180px;
+      resize: none;
+    }
+  }
+}
