@@ -1,0 +1,15 @@
+.btn-primary {
+  width: 120px;
+  height: 45px;
+  background-color: transparent;
+  border: solid 3px $primary;
+  color: $primary;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary;
+    color: $light;
+  }
+}

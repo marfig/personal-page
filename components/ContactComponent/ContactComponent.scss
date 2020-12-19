@@ -15,12 +15,19 @@
     flex: 1;
   }
 
+  .actions {
+    grid-area: actions;
+    padding-top: 10px;
+    text-align: right;
+  }
+
   form {
     display: grid;
     grid-template:
       "name email"
       "subject subject"
-      "message message";
+      "message message"
+      "actions actions";
     gap: 8px;
 
     input[name="name"] {

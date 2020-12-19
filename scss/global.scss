@@ -22,3 +22,10 @@ section p {
   font-weight: 100;
   max-width: 900px;
 }
+
+form {
+  .has-error {
+    transition: border-bottom 0.4s linear;
+    border-bottom: 2px solid $error !important;
+  }
+}
