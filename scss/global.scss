@@ -11,8 +11,31 @@ section {
   overflow: hidden;
 }
 
+#home {
+  h1 {
+    transition: all 0.8s;
+    cursor: default;
+
+    &:hover {
+      transform: translateY(-15px);
+    }
+  }
+}
+
 section:not(#home) .content {
   padding: 10% 5% 2% 10%;
+
+  h1 {
+    color: $primary;
+    font-weight: 800;
+    font-size: 62px;
+    cursor: default;
+    transition: all 0.8s;
+
+    &:hover {
+      transform: translateX(-15px);
+    }
+  }
 }
 
 section p {
