@@ -70,10 +70,10 @@ export default function ContactComponent() {
           </form>
         </div>
         <div className="contact-map">
-          <div className="info">
-            <p>San Lorenzo, Paraguay</p>
-          </div>
           <div className="map">
+            <div className="info">
+              <p>San Lorenzo, Paraguay</p>
+            </div>
             <SimpleMap />
           </div>
         </div>

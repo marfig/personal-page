@@ -15,15 +15,16 @@
 
     .map {
       box-shadow: 0 5px 10px $primary;
-    }
+      position: relative;
 
-    .info {
-      position: absolute;
-      top: 220px;
-      left: 55.3%;
-      z-index: 9999;
-      background-color: $dark-transparent;
-      padding: 2%;
+      .info {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+        background-color: $dark-transparent;
+        padding: 2%;
+      }
     }
 
     .map-marker {

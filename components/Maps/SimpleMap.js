@@ -16,21 +16,20 @@ export default class SimpleMap extends PureComponent {
     super(props);
     this.state = {
       viewport: {
-        latitude: -25,
-        longitude: -62,
-        zoom: 4.5,
+        latitude: -24.343751357406486,
+        longitude: -57.48847854227376,
+        zoom: 6,
+      },
+      marker: {
+        latitude: -25.343739227444928,
+        longitude: -57.48844823989433,
       },
     };
   }
-  //*** El marker no se está actualizando con el zoom */
-  onSelected = (viewport, item) => {
-    this.setState({
-      viewport,
-    });
-  };
 
   render() {
-    const { viewport } = this.state;
+    const { viewport, marker } = this.state;
+
     return (
       <ReactMapGL
         mapboxApiAccessToken={mapboxApiKey}
@@ -39,7 +38,7 @@ export default class SimpleMap extends PureComponent {
         {...mapStyle}
         onViewportChange={(viewport) => this.setState({ viewport })}
       >
-        <Marker latitude={-24.343751357406486} longitude={-57.48847854227376}>
+        <Marker {...marker}>
           <div className="map-marker">
             <FontAwesomeIcon icon={faMapMarkerAlt} />
           </div>
