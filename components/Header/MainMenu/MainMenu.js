@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -8,9 +9,14 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function MainMenu(props) {
+export default function MainMenu() {
   const [menuOver, setMenuOver] = useState("");
   const [menuActive, setMenuActive] = useState("home");
+  const { pathname } = useRouter();
+
+  useEffect(() => {
+    setMenuActive(pathname);
+  }, [pathname]);
 
   const handleClick = (menu) => {
     setMenuActive(menu);
@@ -30,7 +36,9 @@ export default function MainMenu(props) {
         <li>
           <Link href="/">
             <a
-              className={menuActive === "home" ? "active" : ""}
+              className={
+                menuActive === "/home" || menuActive === "/" ? "active" : ""
+              }
               onClick={() => handleClick("home")}
               onMouseOver={() => handleOver("home")}
               onMouseLeave={handleOut}
@@ -46,7 +54,7 @@ export default function MainMenu(props) {
         <li>
           <Link href="/about">
             <a
-              className={menuActive === "about" ? "active" : ""}
+              className={menuActive === "/about" ? "active" : ""}
               onClick={() => handleClick("about")}
               onMouseOver={() => handleOver("about")}
               onMouseLeave={handleOut}
@@ -62,7 +70,7 @@ export default function MainMenu(props) {
         <li>
           <Link href="/portfolio">
             <a
-              className={menuActive === "portfolio" ? "active" : ""}
+              className={menuActive === "/portfolio" ? "active" : ""}
               onClick={() => handleClick("portfolio")}
               onMouseOver={() => handleOver("portfolio")}
               onMouseLeave={handleOut}
@@ -78,7 +86,7 @@ export default function MainMenu(props) {
         <li>
           <Link href="/contact">
             <a
-              className={menuActive === "contact" ? "active" : ""}
+              className={menuActive === "/contact" ? "active" : ""}
               onClick={() => handleClick("contact")}
               onMouseOver={() => handleOver("contact")}
               onMouseLeave={handleOut}
