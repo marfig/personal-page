@@ -1,4 +1,22 @@
+import { useEffect } from "react";
+import useMain from "../../hooks/useMain";
+
 export default function AboutComponent() {
+  const { loadingPage, setLoadingPage } = useMain();
+
+  useEffect(() => {
+    setLoadingPage(false);
+  }, []);
+
+  if (loadingPage)
+    return (
+      <section id="about">
+        <div className="content">
+          <p>Cargando...</p>
+        </div>
+      </section>
+    );
+
   return (
     <section id="about">
       <div className="content">

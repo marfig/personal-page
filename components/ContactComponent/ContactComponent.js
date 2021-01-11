@@ -1,10 +1,18 @@
+import { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import ButtonPimary from "../ButtonPrimary/ButtonPimary";
 import SimpleMap from "../Maps/SimpleMap";
+import useMain from "../../hooks/useMain";
 
 export default function ContactComponent() {
+  const { loadingPage, setLoadingPage } = useMain();
+
+  useEffect(() => {
+    setLoadingPage(false);
+  }, []);
+
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
@@ -17,6 +25,15 @@ export default function ContactComponent() {
       }, 3000);
     },
   });
+
+  if (loadingPage)
+    return (
+      <section id="contact">
+        <div className="content">
+          <p>Cargando...</p>
+        </div>
+      </section>
+    );
 
   return (
     <section id="contact">

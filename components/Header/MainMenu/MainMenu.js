@@ -8,17 +8,20 @@ import {
   faBriefcase,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
+import useMain from "../../../hooks/useMain";
 
 export default function MainMenu() {
   const [menuOver, setMenuOver] = useState("");
   const [menuActive, setMenuActive] = useState("home");
   const { pathname } = useRouter();
+  const { setLoadingPage } = useMain();
 
   useEffect(() => {
     setMenuActive(pathname);
   }, [pathname]);
 
   const handleClick = (menu) => {
+    setLoadingPage(true);
     setMenuActive(menu);
   };
 
