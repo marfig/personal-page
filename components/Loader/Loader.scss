@@ -1,0 +1,42 @@
+.loader {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+
+  > div {
+    width: 400px;
+    height: 180px;
+    margin-top: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    p {
+      font-size: 26px;
+    }
+
+    > div {
+      width: 100%;
+      height: 5px;
+      background-color: lightblue;
+      padding: 0;
+
+      > div {
+        height: 5px;
+        background-color: gray;
+        margin: 0;
+        width: 0;
+        transition: width 2.5s;
+      }
+
+      .progress-bar {
+        width: 100%;
+      }
+
+      .init-progress-bar {
+        width: 0;
+      }
+    }
+  }
+}

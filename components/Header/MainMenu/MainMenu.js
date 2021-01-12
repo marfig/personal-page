@@ -14,15 +14,15 @@ export default function MainMenu() {
   const [menuOver, setMenuOver] = useState("");
   const [menuActive, setMenuActive] = useState("home");
   const { pathname } = useRouter();
-  const { setLoadingPage } = useMain();
+  const { setLoading } = useMain();
 
   useEffect(() => {
     setMenuActive(pathname);
   }, [pathname]);
 
   const handleClick = (menu) => {
-    setLoadingPage(true);
     setMenuActive(menu);
+    setLoading(true);
   };
 
   const handleOver = (menu) => {

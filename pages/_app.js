@@ -6,12 +6,12 @@ import BasicLayout from "../layouts/BasicLayout/BasicLayout";
 import MainContext from "../context/MainContext";
 
 export default function MyApp({ Component, pageProps }) {
-  const [loadingPage, setLoadingPage] = useState(false);
+  const [loadingPage, setLoadingPage] = useState(true);
 
   const mainData = useMemo(
     () => ({
       loadingPage,
-      setLoadingPage: (loading) => setLoadingPage(loading),
+      setLoading: (loading) => setLoadingPage(loading),
     }),
     [loadingPage]
   );
