@@ -1,17 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useMain from "../../hooks/useMain";
+import Loader from "../Loader/Loader";
 
 export default function HomeComponent() {
-  const { loadingPage, setLoadingPage } = useMain();
+  const { loadingPage, setLoading } = useMain();
+  const [progressBar, setProgressBar] = useState("init-progress-bar");
 
   useEffect(() => {
-    setLoadingPage(false);
+    setTimeout(function () {
+      setLoading(false);
+    }, 3000);
+  }, [loadingPage]);
+
+  useEffect(() => {
+    setProgressBar("progress-bar");
   }, []);
 
   if (loadingPage)
     return (
-      <section id="home">
-        <p>Cargando...</p>
+      <section id="about">
+        <div className="content">
+          <Loader progressBar={progressBar}>Cargando...</Loader>
+        </div>
       </section>
     );
 

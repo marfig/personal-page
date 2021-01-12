@@ -1,17 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import ButtonPimary from "../ButtonPrimary/ButtonPimary";
 import SimpleMap from "../Maps/SimpleMap";
 import useMain from "../../hooks/useMain";
+import Loader from "../Loader/Loader";
 
 export default function ContactComponent() {
-  const { loadingPage, setLoadingPage } = useMain();
-
-  useEffect(() => {
-    setLoadingPage(false);
-  }, []);
+  const { loadingPage, setLoading } = useMain();
+  const [progressBar, setProgressBar] = useState("init-progress-bar");
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -26,11 +24,21 @@ export default function ContactComponent() {
     },
   });
 
+  useEffect(() => {
+    setTimeout(function () {
+      setLoading(false);
+    }, 3000);
+  }, [loadingPage]);
+
+  useEffect(() => {
+    setProgressBar("progress-bar");
+  }, []);
+
   if (loadingPage)
     return (
-      <section id="contact">
+      <section id="about">
         <div className="content">
-          <p>Cargando...</p>
+          <Loader progressBar={progressBar}>Cargando...</Loader>
         </div>
       </section>
     );
