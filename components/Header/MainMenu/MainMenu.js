@@ -21,9 +21,6 @@ export default function MainMenu() {
   }, [pathname]);
 
   const handleClick = (menu) => {
-    console.log("menu", menu);
-    console.log("menuActive", menuActive);
-
     if (menu !== menuActive) {
       setMenuActive(menu);
       setLoading(true);

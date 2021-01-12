@@ -25,8 +25,7 @@ export default function ContactComponent() {
   });
 
   useEffect(() => {
-    let timer1 = setTimeout(() => setLoading(false), 1000);
-    setProgressBar("init-progress-bar");
+    let timer1 = setTimeout(() => setLoading(false), 2000);
     setProgressBar("progress-bar");
     return () => {
       clearTimeout(timer1);
@@ -41,7 +40,6 @@ export default function ContactComponent() {
         </div>
       </section>
     );
-
   return (
     <section id="contact">
       <div className="content">

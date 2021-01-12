@@ -7,8 +7,7 @@ export default function AboutComponent() {
   const [progressBar, setProgressBar] = useState("init-progress-bar");
 
   useEffect(() => {
-    let timer1 = setTimeout(() => setLoading(false), 1000);
-    setProgressBar("init-progress-bar");
+    let timer1 = setTimeout(() => setLoading(false), 2000);
     setProgressBar("progress-bar");
     return () => {
       clearTimeout(timer1);
