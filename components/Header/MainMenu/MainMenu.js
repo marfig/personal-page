@@ -21,8 +21,13 @@ export default function MainMenu() {
   }, [pathname]);
 
   const handleClick = (menu) => {
-    setMenuActive(menu);
-    setLoading(true);
+    console.log("menu", menu);
+    console.log("menuActive", menuActive);
+
+    if (menu !== menuActive) {
+      setMenuActive(menu);
+      setLoading(true);
+    }
   };
 
   const handleOver = (menu) => {
@@ -42,7 +47,7 @@ export default function MainMenu() {
               className={
                 menuActive === "/home" || menuActive === "/" ? "active" : ""
               }
-              onClick={() => handleClick("home")}
+              onClick={() => handleClick("/home")}
               onMouseOver={() => handleOver("home")}
               onMouseLeave={handleOut}
             >
@@ -58,7 +63,7 @@ export default function MainMenu() {
           <Link href="/about">
             <a
               className={menuActive === "/about" ? "active" : ""}
-              onClick={() => handleClick("about")}
+              onClick={() => handleClick("/about")}
               onMouseOver={() => handleOver("about")}
               onMouseLeave={handleOut}
             >
@@ -74,7 +79,7 @@ export default function MainMenu() {
           <Link href="/portfolio">
             <a
               className={menuActive === "/portfolio" ? "active" : ""}
-              onClick={() => handleClick("portfolio")}
+              onClick={() => handleClick("/portfolio")}
               onMouseOver={() => handleOver("portfolio")}
               onMouseLeave={handleOut}
             >
@@ -90,7 +95,7 @@ export default function MainMenu() {
           <Link href="/contact">
             <a
               className={menuActive === "/contact" ? "active" : ""}
-              onClick={() => handleClick("contact")}
+              onClick={() => handleClick("/contact")}
               onMouseOver={() => handleOver("contact")}
               onMouseLeave={handleOut}
             >

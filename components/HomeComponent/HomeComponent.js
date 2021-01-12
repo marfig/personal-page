@@ -7,14 +7,13 @@ export default function HomeComponent() {
   const [progressBar, setProgressBar] = useState("init-progress-bar");
 
   useEffect(() => {
-    setTimeout(function () {
-      setLoading(false);
-    }, 3000);
-  }, [loadingPage]);
-
-  useEffect(() => {
+    let timer1 = setTimeout(() => setLoading(false), 1000);
+    setProgressBar("init-progress-bar");
     setProgressBar("progress-bar");
-  }, []);
+    return () => {
+      clearTimeout(timer1);
+    };
+  }, [loadingPage]);
 
   if (loadingPage)
     return (
