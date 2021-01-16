@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { listProjectsApi } from "../../api/gitLabApi";
 import useMain from "../../hooks/useMain";
 import Loader from "../Loader/Loader";
 
 export default function PortfolioComponent() {
+  const [projectsGitLab, setProjectsGitLab] = useState([]);
   const { loadingPage, setLoading } = useMain();
   const [progressBar, setProgressBar] = useState("init-progress-bar");
 
@@ -13,6 +15,13 @@ export default function PortfolioComponent() {
       clearTimeout(timer1);
     };
   }, [loadingPage]);
+
+  useEffect(() => {
+    (async () => {
+      const result = await listProjectsApi();
+      setProjectsGitLab(result);
+    })();
+  }, []);
 
   if (loadingPage)
     return (
@@ -27,6 +36,11 @@ export default function PortfolioComponent() {
     <section id="portfolio">
       <div className="content">
         <h1>Portfolio</h1>
+        <div className="projects">
+          {!projectsGitLab && <p>Cargando...</p>}
+          {projectsGitLab &&
+            projectsGitLab.map((project) => <p>{project.name}</p>)}
+        </div>
       </div>
     </section>
   );
