@@ -1,0 +1,33 @@
+.portfolio-item {
+  padding: 10px;
+  height: 200px;
+  overflow: hidden;
+  padding: 0;
+  transition: transform 0.5s;
+  background-color: transparent;
+  filter: opacity(0.8);
+  border-radius: 5%;
+  box-shadow: 5px 5px 8px $dark-transparent;
+  color: $light;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+
+  .title {
+    font-weight: bold;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    border-bottom: solid 1px;
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+
+  .info {
+    padding: 10px;
+    font-weight: 100;
+  }
+}

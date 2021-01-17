@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faUser,
-  faBriefcase,
+  faCode,
   faEnvelope,
+  faLaptop,
 } from "@fortawesome/free-solid-svg-icons";
 import useMain from "../../../hooks/useMain";
 
@@ -57,6 +58,24 @@ export default function MainMenu() {
           </Link>
         </li>
         <li>
+          <Link href="/work">
+            <a
+              className={
+                menuActive === "/work" || menuActive === "/" ? "active" : ""
+              }
+              onClick={() => handleClick("/work")}
+              onMouseOver={() => handleOver("work")}
+              onMouseLeave={handleOut}
+            >
+              {menuOver === "work" ? (
+                <span>WORKS</span>
+              ) : (
+                <FontAwesomeIcon icon={faLaptop} />
+              )}
+            </a>
+          </Link>
+        </li>
+        <li>
           <Link href="/about">
             <a
               className={menuActive === "/about" ? "active" : ""}
@@ -81,9 +100,9 @@ export default function MainMenu() {
               onMouseLeave={handleOut}
             >
               {menuOver === "portfolio" ? (
-                <span>WORKS</span>
+                <span>CODE</span>
               ) : (
-                <FontAwesomeIcon icon={faBriefcase} />
+                <FontAwesomeIcon icon={faCode} />
               )}
             </a>
           </Link>

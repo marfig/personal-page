@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { listProjectsApi } from "../../api/gitLabApi";
 import useMain from "../../hooks/useMain";
 import Loader from "../Loader/Loader";
+import PortfolioItem from "./PortfolioItem/PortfolioItem";
+import { faGitlab } from "@fortawesome/free-brands-svg-icons";
 
 export default function PortfolioComponent() {
   const [projectsGitLab, setProjectsGitLab] = useState([]);
@@ -35,11 +37,15 @@ export default function PortfolioComponent() {
   return (
     <section id="portfolio">
       <div className="content">
-        <h1>Portfolio</h1>
+        <h1>Repositories</h1>
         <div className="projects">
           {!projectsGitLab && <p>Cargando...</p>}
           {projectsGitLab &&
-            projectsGitLab.map((project) => <p>{project.name}</p>)}
+            projectsGitLab
+              .slice(0, 10)
+              .map((project) => (
+                <PortfolioItem project={project} icon={faGitlab} />
+              ))}
         </div>
       </div>
     </section>

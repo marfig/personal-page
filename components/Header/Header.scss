@@ -1,4 +1,10 @@
 header {
+  display: none;
+
+  @media (min-width: 200px) {
+    display: block;
+  }
+
   .sidebar {
     position: fixed;
     top: 0;

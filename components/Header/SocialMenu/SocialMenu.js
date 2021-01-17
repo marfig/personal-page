@@ -1,10 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStroopwafel } from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitter,
   faLinkedin,
   faGithub,
-  faFacebookF,
+  faGitlab,
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function SocialMenu() {
@@ -16,6 +15,11 @@ export default function SocialMenu() {
         </a>
       </li>
       <li>
+        <a href="https://gitlab.com/marvin.figueredo" target="_blank">
+          <FontAwesomeIcon icon={faGitlab} />
+        </a>
+      </li>
+      <li>
         <a href="https://github.com/marfig" target="_blank">
           <FontAwesomeIcon icon={faGithub} />
         </a>
@@ -23,12 +27,6 @@ export default function SocialMenu() {
       <li>
         <a href="https://twitter.com/MarvinElder7" target="_blank">
           <FontAwesomeIcon icon={faTwitter} />
-        </a>
-      </li>
-
-      <li>
-        <a href="https://www.facebook.com/marvin.figueredo" target="_blank">
-          <FontAwesomeIcon icon={faFacebookF} />
         </a>
       </li>
     </ul>
