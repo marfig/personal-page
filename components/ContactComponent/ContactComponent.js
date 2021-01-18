@@ -25,7 +25,7 @@ export default function ContactComponent() {
   });
 
   useEffect(() => {
-    let timer1 = setTimeout(() => setLoading(false), 2000);
+    let timer1 = setTimeout(() => setLoading(false), 500);
     setProgressBar("progress-bar");
     return () => {
       clearTimeout(timer1);

@@ -15,8 +15,12 @@
     color: $secondary;
     margin: 0 auto;
     margin-top: 0;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     font-family: "Open Sans", sans-serif;
+
+    @media (min-width: 837px) {
+      font-size: 30px;
+    }
   }
 }

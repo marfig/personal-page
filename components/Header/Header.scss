@@ -1,32 +1,39 @@
 header {
   .sidebar {
-    display: none !important;
-
-    @media (min-width: 837px) {
-      display: inline !important;
-    }
-
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
     background-color: #181818;
+    width: 100%;
+    z-index: 99999;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    width: 80px;
-    box-shadow: 0 5px 10px $primary;
+    align-items: center;
+
+    @media (min-width: 837px) {
+      width: 80px;
+      flex-direction: column;
+      box-shadow: 0 5px 10px $primary;
+      height: 100vh;
+    }
 
     .logo {
       display: block;
       background-color: $dark-absolute;
-      padding: 5px 0 0 0;
-      font-size: 70px;
+      padding: 5px 5px 0 5px;
+      font-size: 50px;
       color: $primary;
       text-decoration: none;
       font-weight: bold;
       text-align: center;
       font-family: "Bebas Neue", cursive;
+
+      @media (min-width: 837px) {
+        font-size: 70px;
+        padding: 0;
+        width: 100%;
+      }
     }
   }
 }

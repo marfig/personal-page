@@ -1,10 +1,25 @@
 .social-menu {
   list-style-type: none;
   padding: 0;
+  display: none;
+
+  @media (min-width: 837px) {
+    flex-direction: column !important;
+  }
+
+  @media (min-width: 700px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 
   li {
-    height: 35px;
     text-align: center;
+    padding: 0 10px 0 10px;
+
+    @media (min-width: 837px) {
+      padding-top: 15%;
+    }
   }
 
   a {

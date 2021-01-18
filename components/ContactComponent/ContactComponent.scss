@@ -3,6 +3,11 @@
 #contact {
   .content {
     display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1200px) {
+      flex-direction: row;
+    }
   }
 
   .contact-form {
@@ -10,8 +15,13 @@
   }
 
   .contact-map {
+    display: none;
     flex: 1;
     padding: 0 0 20px 50px;
+
+    @media (min-width: 1200px) {
+      display: block;
+    }
 
     .map {
       box-shadow: 0 5px 10px $primary;
@@ -42,11 +52,20 @@
   form {
     display: grid;
     grid-template:
-      "name email"
-      "subject subject"
-      "message message"
-      "actions actions";
+      "name"
+      "email"
+      "subject"
+      "message"
+      "actions";
     gap: 8px;
+
+    @media (min-width: 837px) {
+      grid-template:
+        "name email"
+        "subject subject"
+        "message message"
+        "actions actions";
+    }
 
     input[name="name"] {
       grid-area: name;

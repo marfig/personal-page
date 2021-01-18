@@ -1,2 +1,10 @@
 #about {
+  .info {
+    height: 70vh;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
