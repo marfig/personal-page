@@ -60,9 +60,7 @@ export default function MainMenu() {
         <li>
           <Link href="/work">
             <a
-              className={
-                menuActive === "/work" || menuActive === "/" ? "active" : ""
-              }
+              className={menuActive === "/work" ? "active" : ""}
               onClick={() => handleClick("/work")}
               onMouseOver={() => handleOver("work")}
               onMouseLeave={handleOut}
