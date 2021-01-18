@@ -4,14 +4,15 @@
   overflow: hidden;
   padding: 0;
   transition: transform 0.5s;
-  background-color: transparent;
   filter: opacity(0.8);
   border-radius: 5%;
-  box-shadow: 5px 5px 8px $dark-transparent;
   color: $light;
+  background-color: $dark-transparent;
+  cursor: pointer;
 
   &:hover {
-    transform: scale(1.04);
+    transform: scale(1.02);
+    filter: opacity(0.9);
   }
 
   .title {

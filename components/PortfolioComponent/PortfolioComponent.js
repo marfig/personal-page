@@ -41,11 +41,9 @@ export default function PortfolioComponent() {
         <div className="projects">
           {!projectsGitLab && <p>Cargando...</p>}
           {projectsGitLab &&
-            projectsGitLab
-              .slice(0, 10)
-              .map((project) => (
-                <PortfolioItem project={project} icon={faGitlab} />
-              ))}
+            projectsGitLab.map((project) => (
+              <PortfolioItem project={project} icon={faGitlab} />
+            ))}
         </div>
       </div>
     </section>
