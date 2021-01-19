@@ -42,7 +42,11 @@ export default function PortfolioComponent() {
           {!projectsGitLab && <p>Cargando...</p>}
           {projectsGitLab &&
             projectsGitLab.map((project) => (
-              <PortfolioItem project={project} icon={faGitlab} />
+              <PortfolioItem
+                project={project}
+                icon={faGitlab}
+                key={project.id}
+              />
             ))}
         </div>
       </div>

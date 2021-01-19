@@ -1,10 +1,18 @@
 nav {
+  margin-right: 20px;
+  @media (min-width: 700px) {
+    margin-right: 0;
+  }
+  @media (min-width: 837px) {
+    width: 100%;
+  }
   ul {
     display: flex;
     flex-direction: row;
     align-items: center;
     list-style: none;
     padding: 0;
+    text-align: center;
 
     @media (min-width: 837px) {
       flex-direction: column;
@@ -28,13 +36,18 @@ nav {
   }
 
   li {
-    padding: 0 10px 0 10px;
+    width: 50px;
     @media (min-width: 837px) {
-      padding-top: 50%;
+      height: 70px;
+      width: 100%;
     }
 
     span {
-      font-size: 16px;
+      font-size: 10px;
+
+      @media (min-width: 837px) {
+        font-size: 14px;
+      }
     }
   }
 
@@ -42,5 +55,3 @@ nav {
     color: $primary;
   }
 }
-
-//**** Arreglar el hover del menu que cambia de tamaño

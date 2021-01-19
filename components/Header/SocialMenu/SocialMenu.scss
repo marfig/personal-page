@@ -15,10 +15,10 @@
 
   li {
     text-align: center;
-    padding: 0 10px 0 10px;
+    width: 30px;
 
     @media (min-width: 837px) {
-      padding-top: 15%;
+      height: 25px;
     }
   }
 
