@@ -121,3 +121,6 @@ function validationSchema() {
     message: Yup.string().required(true),
   };
 }
+
+//***Enviar email */
+//***Ver si se puede cargar tarde el mapa */
