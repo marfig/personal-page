@@ -4,13 +4,8 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 import ButtonPimary from "../ButtonPrimary/ButtonPimary";
 import SimpleMap from "../Maps/SimpleMap";
-import useMain from "../../hooks/useMain";
-import Loader from "../Loader/Loader";
 
 export default function ContactComponent() {
-  const { loadingPage, setLoading } = useMain();
-  const [progressBar, setProgressBar] = useState("init-progress-bar");
-
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
@@ -24,22 +19,6 @@ export default function ContactComponent() {
     },
   });
 
-  useEffect(() => {
-    let timer1 = setTimeout(() => setLoading(false), 500);
-    setProgressBar("progress-bar");
-    return () => {
-      clearTimeout(timer1);
-    };
-  }, [loadingPage]);
-
-  if (loadingPage)
-    return (
-      <section id="about">
-        <div className="content">
-          <Loader progressBar={progressBar}>Cargando...</Loader>
-        </div>
-      </section>
-    );
   return (
     <section id="contact">
       <div className="content">

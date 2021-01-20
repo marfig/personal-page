@@ -1,11 +1,4 @@
 .basic-layout {
   overflow: hidden;
-  background-image: linear-gradient(
-    to right bottom,
-    #1a1b1e,
-    #36414d,
-    #4e6d7f,
-    #629db1,
-    #77d1de
-  );
+  background-image: $background;
 }

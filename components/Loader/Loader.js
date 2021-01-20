@@ -1,11 +1,19 @@
+import { useState, useEffect } from "react";
+
 export default function Loader(props) {
-  const { progressBar, children } = props;
+  const { children } = props;
+  const [progress, SetProgress] = useState("init-progress-bar");
+
+  useEffect(() => {
+    SetProgress("progress-bar");
+  }, []);
+
   return (
     <div className="loader">
       <div>
         <p>{children}</p>
         <div>
-          <div className={progressBar}></div>
+          <div className={progress}></div>
         </div>
       </div>
     </div>

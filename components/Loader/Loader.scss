@@ -2,18 +2,22 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-image: $background;
 
   > div {
     width: 400px;
-    height: 180px;
-    margin-top: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: -90px;
 
     p {
-      font-size: 26px;
+      font-size: 46px;
+      font-weight: bold;
+      color: $light;
+      margin-top: 0;
     }
 
     > div {

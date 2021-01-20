@@ -9,13 +9,11 @@ import {
   faEnvelope,
   faLaptop,
 } from "@fortawesome/free-solid-svg-icons";
-import useMain from "../../../hooks/useMain";
 
 export default function MainMenu() {
   const [menuOver, setMenuOver] = useState("");
   const [menuActive, setMenuActive] = useState("home");
   const { pathname } = useRouter();
-  const { setLoading } = useMain();
 
   useEffect(() => {
     setMenuActive(pathname);
@@ -24,7 +22,6 @@ export default function MainMenu() {
   const handleClick = (menu) => {
     if (menu !== menuActive) {
       setMenuActive(menu);
-      setLoading(true);
     }
   };
 
