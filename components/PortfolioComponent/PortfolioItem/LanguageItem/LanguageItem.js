@@ -14,11 +14,10 @@ export default function LanguageItem(props) {
       <div className="language-legend">
         {!filterKeys && null}
         {filterKeys &&
-          filterKeys.map((key) => (
-            <div>
+          filterKeys.map((key, i) => (
+            <div key={`${key}_${i}`}>
               <div
                 className="language-legend-item"
-                key={key}
                 style={{
                   backgroundColor: GetColorBar(languages[key]),
                 }}
@@ -31,9 +30,9 @@ export default function LanguageItem(props) {
       <div className="language-bar">
         {!filterKeys && null}
         {filterKeys &&
-          filterKeys.map((key) => (
+          filterKeys.map((key, i) => (
             <div
-              key={key}
+              key={`${i}_${key}`}
               style={{
                 width: `${languages[key]}%`,
                 backgroundColor: GetColorBar(languages[key]),

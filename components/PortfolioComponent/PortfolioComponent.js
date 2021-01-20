@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { listProjectsApi } from "../../api/gitLabApi";
 import useMain from "../../hooks/useMain";
 import Loader from "../Loader/Loader";
 import PortfolioItem from "./PortfolioItem/PortfolioItem";
-import { faGitlab } from "@fortawesome/free-brands-svg-icons";
+import { listAllRepoApi } from "../../api/gitRepositoryApi";
 
 export default function PortfolioComponent() {
-  const [projectsGitLab, setProjectsGitLab] = useState([]);
+  const [projectsList, setProjectsList] = useState([]);
   const { loadingPage, setLoading } = useMain();
   const [progressBar, setProgressBar] = useState("init-progress-bar");
 
@@ -20,8 +19,8 @@ export default function PortfolioComponent() {
 
   useEffect(() => {
     (async () => {
-      const result = await listProjectsApi();
-      setProjectsGitLab(result);
+      const result = await listAllRepoApi();
+      setProjectsList(result);
     })();
   }, []);
 
@@ -39,15 +38,13 @@ export default function PortfolioComponent() {
       <div className="content">
         <h1>Repositories</h1>
         <div className="projects">
-          {!projectsGitLab && <p>Cargando...</p>}
-          {projectsGitLab &&
-            projectsGitLab.map((project) => (
-              <PortfolioItem
-                project={project}
-                icon={faGitlab}
-                key={project.id}
-              />
-            ))}
+          {!projectsList && <p>Cargando...</p>}
+          {projectsList &&
+            projectsList
+              .sort()
+              .map((project) => (
+                <PortfolioItem project={project} key={project.id} />
+              ))}
         </div>
       </div>
     </section>
