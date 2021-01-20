@@ -20,6 +20,9 @@ export default function PortfolioComponent() {
   useEffect(() => {
     (async () => {
       const result = await listAllRepoApi();
+      result.sort(function (a, b) {
+        return a.upd < b.upd ? 1 : a.upd > b.upd ? -1 : 0;
+      });
       setProjectsList(result);
     })();
   }, []);
@@ -40,11 +43,9 @@ export default function PortfolioComponent() {
         <div className="projects">
           {!projectsList && <p>Cargando...</p>}
           {projectsList &&
-            projectsList
-              .sort()
-              .map((project) => (
-                <PortfolioItem project={project} key={project.id} />
-              ))}
+            projectsList.map((project) => (
+              <PortfolioItem project={project} key={project.id} />
+            ))}
         </div>
       </div>
     </section>

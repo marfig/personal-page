@@ -36,7 +36,7 @@ export async function listAllRepoApi() {
         name: item.name,
         description: item.description,
         url: item.http_url_to_repo,
-        upd: item.last_activity_at,
+        upd: new Date(item.last_activity_at),
         type: GITLAB_REPO,
       });
     });
@@ -47,7 +47,7 @@ export async function listAllRepoApi() {
         name: item.name,
         description: item.description,
         url: item.html_url,
-        upd: item.updated_at,
+        upd: new Date(item.updated_at),
         type: GITHUB_REPO,
       });
     });
