@@ -31,7 +31,7 @@ export default async function (req, res) {
 
   try {
     const response = await fetch(url, params);
-
+    console.log(response);
     res.status(200).send("Message sent successfully.");
   } catch (error) {
     console.log("ERROR", error);
