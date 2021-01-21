@@ -102,4 +102,3 @@ function validationSchema() {
 }
 
 //***Enviar email */
-//***Ver si se puede cargar tarde el mapa */

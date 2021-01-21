@@ -30,13 +30,9 @@ nav {
     }
   }
 
-  a:hover {
-    color: $primary;
-    vertical-align: middle;
-  }
-
   li {
     width: 50px;
+
     @media (min-width: 837px) {
       height: 70px;
       width: 100%;
@@ -44,9 +40,20 @@ nav {
 
     span {
       font-size: 10px;
+      display: none;
 
       @media (min-width: 837px) {
         font-size: 14px;
+      }
+    }
+
+    &:hover {
+      svg {
+        display: none;
+      }
+      span {
+        display: inline;
+        color: $primary;
       }
     }
   }

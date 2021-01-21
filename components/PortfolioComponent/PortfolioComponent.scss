@@ -1,12 +1,16 @@
 #portfolio {
   .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
     height: 50vh;
     overflow-x: auto;
     padding: 15px;
     margin: -15px;
+
+    @media (min-width: 600px) {
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    }
 
     &::-webkit-scrollbar {
       display: none;
