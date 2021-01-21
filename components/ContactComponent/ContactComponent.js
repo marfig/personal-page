@@ -1,21 +1,26 @@
-import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import ButtonPimary from "../ButtonPrimary/ButtonPimary";
 import SimpleMap from "../Maps/SimpleMap";
+import { sendEmailApi } from "../../api/emailApi";
 
 export default function ContactComponent() {
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
-    onSubmit: (formData) => {
-      console.log(formData);
-      toast.info("One moment please. Your message is being sent...");
-      setTimeout(function () {
+    onSubmit: async (formData) => {
+      try {
+        toast.info("One moment please. Your message is being sent...");
+
+        const result = await sendEmailApi(formData);
+
         toast.success("Message sended. Thank you for your contact!");
+
         formik.resetForm();
-      }, 3000);
+      } catch (error) {
+        toast.error("An error ocurred. Please try again later");
+      }
     },
   });
 
@@ -100,5 +105,3 @@ function validationSchema() {
     message: Yup.string().required(true),
   };
 }
-
-//***Enviar email */
