@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
-    height: 50vh;
+    height: 70vh;
     overflow-x: auto;
     padding: 15px;
     margin: -15px;
@@ -12,8 +12,19 @@
       grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
     }
 
+    @media (min-width: 837px) {
+      height: 50vh;
+    }
+
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    .loading {
+      margin: 0 auto;
+      @media (min-width: 837px) {
+        margin: 0;
+      }
     }
   }
 }

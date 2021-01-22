@@ -5,8 +5,6 @@ import { listAllRepoApi } from "../../api/gitRepositoryApi";
 export default function PortfolioComponent() {
   const [projectsList, setProjectsList] = useState(undefined);
 
-  console.log("projectsList", projectsList);
-
   useEffect(() => {
     (async () => {
       const result = await listAllRepoApi();
@@ -22,7 +20,7 @@ export default function PortfolioComponent() {
       <div className="content">
         <h1>Repositories</h1>
         <div className="projects">
-          {!projectsList && <p>Loading...</p>}
+          {!projectsList && <p className="loading">Loading...</p>}
           {projectsList &&
             projectsList.map((project) => (
               <PortfolioItem project={project} key={project.id} />

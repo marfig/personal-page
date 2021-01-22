@@ -1,2 +1,116 @@
 #work {
+  .experience {
+    height: 70vh;
+    overflow-x: auto;
+    background-color: $dark-transparent;
+    padding: 10px;
+    border-radius: 0.5rem;
+    color: $light;
+
+    @media (min-width: 837px) {
+      height: 50vh;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__content {
+      padding: 25px 25px 25px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 45;
+
+      h4 {
+        text-transform: uppercase;
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        font-weight: bold;
+        color: rgba($primary, 0.8);
+      }
+      h5 {
+        text-transform: uppercase;
+        font-size: 14px;
+        margin: 5px 0;
+        padding: 0;
+        font-weight: bold;
+        color: $light-grey;
+      }
+    }
+    &__info {
+      margin: 0;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .year {
+      min-width: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      flex: 5;
+
+      .to,
+      .from {
+        font-weight: normal;
+        position: absolute;
+      }
+
+      .to {
+        top: -15px;
+      }
+
+      .from {
+        bottom: -15px;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 20px 0 0 0;
+      padding: 0 10px 0 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 55px;
+      @media (min-width: 600px) {
+        grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      }
+    }
+
+    li {
+      padding-left: 10px;
+      margin: 20px 0;
+      display: flex;
+
+      .timeline {
+        position: relative;
+        height: 100%;
+        border-right: solid 2px $primary;
+        flex: 1;
+      }
+
+      .line-before {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid $primary;
+        position: absolute;
+        top: -12px;
+        right: -8px;
+      }
+      .line-after {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid $primary;
+        position: absolute;
+        bottom: -12px;
+        right: -7px;
+      }
+    }
+  }
 }
