@@ -9,7 +9,6 @@ export async function sendEmailApi(data) {
       body: JSON.stringify(data),
     };
     const response = await fetch(url, params);
-    //const result = await response.json();
 
     return response;
   } catch (error) {

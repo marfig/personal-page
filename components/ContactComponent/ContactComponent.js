@@ -15,6 +15,11 @@ export default function ContactComponent() {
 
         const result = await sendEmailApi(formData);
 
+        if (result.status !== 200 && result.status !== 201) {
+          toast.error("An error ocurred. Please try again later");
+          return;
+        }
+
         toast.success("Message sended. Thank you for your contact!");
 
         formik.resetForm();

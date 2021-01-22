@@ -31,10 +31,14 @@ export default async function (req, res) {
 
   try {
     const response = await fetch(url, params);
-    console.log(response);
+
+    if (response.status !== 200 && response.status !== 201) {
+      throw new Error("An error ocurred. Message not sent.");
+    }
+
     res.status(200).send("Message sent successfully.");
   } catch (error) {
     console.log("ERROR", error);
-    res.status(400).send("Message not sent.");
+    res.status(400).send("An error ocurred. Message not sent.");
   }
 }
