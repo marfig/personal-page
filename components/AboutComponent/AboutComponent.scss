@@ -1,10 +1,121 @@
 #about {
-  .info {
-    height: 70vh;
+  .content {
     overflow-x: auto;
-
+    height: 100vh;
+    margin: 90px 0 40px 0;
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    @media (min-width: 1030px) {
+      display: flex;
+      align-items: center;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: 1030px) {
+        flex-direction: row;
+        padding-left: 3%;
+        height: auto;
+        margin-top: 0;
+      }
+
+      .descript {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @media (min-width: 1030px) {
+          align-items: flex-start;
+        }
+
+        .info {
+          overflow-x: auto;
+          width: 85%;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+      }
+      .skill-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+
+        .skill {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 500px;
+
+          @media (min-width: 800px) {
+            margin-left: 20px;
+          }
+
+          h3 {
+            margin: 0;
+            color: $light;
+            text-align: center;
+          }
+
+          .bar-container {
+            display: flex;
+            position: relative;
+
+            .bar-title {
+              width: 120px;
+              color: $light;
+              font-weight: bold;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: absolute;
+              top: 0;
+              left: 10px;
+              height: 100%;
+              justify-content: flex-start;
+              color: $dark-absolute;
+            }
+
+            .bar {
+              background-color: $light-grey;
+              height: 30px;
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              box-shadow: $dark-transparent 3px 3px 3px;
+              border-radius: 0.25rem;
+
+              .bar-progress-init {
+                width: 0 !important;
+              }
+              .bar-progress {
+                height: 100%;
+                background-image: linear-gradient(
+                  to left top,
+                  $dark-absolute,
+                  $primary
+                );
+                border-radius: 0.25rem 0 0 0.25rem;
+                transition: width 1.5s ease-in-out;
+              }
+              .bar-percent {
+                color: $dark-absolute;
+                font-weight: normal;
+                margin: 5px;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

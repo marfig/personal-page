@@ -4,6 +4,8 @@
   .content {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    height: 100vh;
 
     @media (min-width: 1200px) {
       flex-direction: row;
@@ -12,20 +14,35 @@
 
   .contact-form {
     flex: 1;
+    padding: 90px 10%;
+
+    @media (min-width: 1200px) {
+      padding: 0 5% 0 10%;
+      flex: 0.8;
+    }
+
+    @media (min-width: 837px) {
+      padding: 90px 5% 0 12%;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
   }
 
   .contact-map {
     display: none;
-    flex: 1;
-    padding: 0 0 20px 50px;
 
     @media (min-width: 1200px) {
       display: block;
+      height: 100vh;
+      flex: 1;
+      padding: 0;
     }
 
     .map {
-      box-shadow: 0 5px 10px $primary;
       position: relative;
+      height: 100%;
 
       .info {
         position: absolute;

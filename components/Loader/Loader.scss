@@ -1,45 +1,55 @@
 .loader {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-image: $background;
 
-  > div {
-    width: 400px;
+  .container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column;
-    margin-top: -90px;
-
-    p {
-      font-size: 46px;
-      font-weight: bold;
-      color: $light;
-      margin-top: 0;
-    }
+    align-items: center;
+    background-color: $dark-transparent;
+    width: 100%;
+    height: 100vh;
 
     > div {
-      width: 100%;
-      height: 5px;
-      background-color: lightblue;
-      padding: 0;
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: -90px;
+
+      @media (min-width: 550px) {
+        width: 400px;
+      }
+
+      p {
+        font-size: 46px;
+        font-weight: bold;
+        color: $light;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
 
       > div {
-        height: 5px;
-        background-color: gray;
-        margin: 0;
-        width: 0;
-        transition: width 0.5s;
-      }
-
-      .progress-bar {
         width: 100%;
-      }
+        height: 5px;
+        background-color: lightblue;
+        padding: 0;
 
-      .init-progress-bar {
-        width: 0;
+        > div {
+          height: 5px;
+          background-color: gray;
+          margin: 0;
+          width: 0;
+          transition: width 0.5s;
+        }
+
+        .progress-bar {
+          width: 100%;
+        }
+
+        .init-progress-bar {
+          width: 0;
+        }
       }
     }
   }

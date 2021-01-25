@@ -6,13 +6,17 @@ export default function PortfolioComponent() {
   const [projectsList, setProjectsList] = useState(undefined);
 
   useEffect(() => {
+    let isSubscribed = true;
     (async () => {
       const result = await listAllRepoApi();
       result.sort(function (a, b) {
         return a.upd < b.upd ? 1 : a.upd > b.upd ? -1 : 0;
       });
-      setProjectsList(result);
+      if (isSubscribed) {
+        setProjectsList(result);
+      }
     })();
+    return () => (isSubscribed = false);
   }, []);
 
   return (

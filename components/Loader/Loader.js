@@ -10,10 +10,12 @@ export default function Loader(props) {
 
   return (
     <div className="loader">
-      <div>
-        <p>{children}</p>
+      <div className="container">
         <div>
-          <div className={progress}></div>
+          <p>{children}</p>
+          <div>
+            <div className={progress}></div>
+          </div>
         </div>
       </div>
     </div>

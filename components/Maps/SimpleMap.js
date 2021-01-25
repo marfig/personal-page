@@ -5,7 +5,7 @@ import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 const mapStyle = {
   width: "100%",
-  height: "63.5vh",
+  height: "100%",
 };
 
 const mapboxApiKey =

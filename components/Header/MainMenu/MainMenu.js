@@ -34,18 +34,18 @@ export default function MainMenu() {
           </Link>
         </li>
         <li>
-          <Link href="/work">
-            <a className={menuActive === "/work" ? "active" : ""}>
-              <span>WORKS</span>
-              <FontAwesomeIcon icon={faLaptop} />
-            </a>
-          </Link>
-        </li>
-        <li>
           <Link href="/about">
             <a className={menuActive === "/about" ? "active" : ""}>
               <span>ABOUT</span>
               <FontAwesomeIcon icon={faUser} />
+            </a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/work">
+            <a className={menuActive === "/work" ? "active" : ""}>
+              <span>WORKS</span>
+              <FontAwesomeIcon icon={faLaptop} />
             </a>
           </Link>
         </li>

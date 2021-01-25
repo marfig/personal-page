@@ -1,5 +1,10 @@
 @import "./index.scss";
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -9,6 +14,10 @@ body {
 section {
   height: 100vh;
   overflow: hidden;
+  background-color: $dark-transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #home {
@@ -29,13 +38,15 @@ section {
   }
 }
 
-section:not(#home) .content {
-  padding: 15% 7% 7% 7%;
+section:not(#home):not(#contact) .content {
+  padding: 0 7% 0 7% !important;
 
   @media (min-width: 837px) {
     padding: 7% 5% 2% 10%;
   }
+}
 
+section:not(#home) .content {
   h1 {
     color: $primary;
     font-weight: 800;
@@ -43,6 +54,7 @@ section:not(#home) .content {
     text-align: center;
     cursor: default;
     transition: all 0.8s;
+    margin-bottom: 20px;
 
     @media (min-width: 837px) {
       font-size: 62px;
