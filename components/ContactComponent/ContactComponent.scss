@@ -5,24 +5,31 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @media (min-width: 1200px) {
       flex-direction: row;
+      height: 100vh;
+      overflow-x: hidden;
     }
   }
 
   .contact-form {
     flex: 1;
-    padding: 90px 10%;
-
-    @media (min-width: 1200px) {
-      padding: 0 5% 0 10%;
-      flex: 0.8;
-    }
+    padding: 20px 10%;
 
     @media (min-width: 837px) {
-      padding: 90px 5% 0 12%;
+      padding: 90px 5% 0 10%;
+    }
+
+    @media (min-width: 1200px) {
+      padding: 0 5% 0 180px;
+      flex: 0.8;
     }
 
     p {

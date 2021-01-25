@@ -33,7 +33,7 @@ export default class SimpleMap extends PureComponent {
     return (
       <ReactMapGL
         mapboxApiAccessToken={mapboxApiKey}
-        mapStyle="mapbox://styles/mapbox/light-v10"
+        mapStyle="mapbox://styles/mapbox/dark-v10"
         {...viewport}
         {...mapStyle}
         onViewportChange={(viewport) => this.setState({ viewport })}
