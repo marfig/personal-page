@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
@@ -8,11 +9,11 @@ import { sendEmailApi } from "../../api/emailApi";
 import { getContactContent } from "../../api/contactApi";
 
 export default function ContactComponent() {
-  const [lan, setLan] = useState("es");
+  const router = useRouter();
   const [pageContent, setPageContent] = useState({});
 
   useEffect(() => {
-    const content = getContactContent(lan);
+    const content = getContactContent(router.locale || "es");
     setPageContent(content);
   }, []);
 

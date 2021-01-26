@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import PortfolioItem from "./PortfolioItem/PortfolioItem";
 import {
   getPortfolioContent,
@@ -6,12 +7,12 @@ import {
 } from "../../api/gitRepositoryApi";
 
 export default function PortfolioComponent() {
-  const [lan, setLan] = useState("es");
+  const router = useRouter();
   const [pageContent, setPageContent] = useState({});
   const [projectsList, setProjectsList] = useState(undefined);
 
   useEffect(() => {
-    const content = getPortfolioContent(lan);
+    const content = getPortfolioContent(router.locale || "es");
     setPageContent(content);
   }, []);
 

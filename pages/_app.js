@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import { ToastContainer } from "react-toastify";
 import "../scss/global.scss";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,12 +8,12 @@ import Loader from "../components/Loader";
 import { getLoaderContent } from "../api/loaderApi";
 
 export default function MyApp({ Component, pageProps }) {
-  const [lan, setLan] = useState("es");
+  const router = useRouter();
   const [loaderContent, setLoaderContent] = useState({});
   const [loadingPage, setLoadingPage] = useState(false);
 
   useEffect(() => {
-    const content = getLoaderContent(lan);
+    const content = getLoaderContent(router.locale || "es");
     setLoaderContent(content);
   }, []);
 

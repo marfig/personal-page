@@ -1,4 +1,15 @@
 .basic-layout {
   overflow: hidden;
   background-image: $background;
+  position: relative;
+
+  .lang-selector {
+    position: absolute;
+    right: 0px;
+    top: 70px;
+
+    @media (min-width: 837px) {
+      top: 0px;
+    }
+  }
 }

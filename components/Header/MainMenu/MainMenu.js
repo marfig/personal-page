@@ -12,13 +12,12 @@ import {
 import { getMainMenuContent } from "../../../api/menuApi";
 
 export default function MainMenu() {
-  const [lan, setLan] = useState("es");
   const [menuContent, setMenuContent] = useState({});
   const [menuActive, setMenuActive] = useState("home");
-  const { pathname } = useRouter();
+  const { pathname, locale } = useRouter();
 
   useEffect(() => {
-    const content = getMainMenuContent(lan);
+    const content = getMainMenuContent(locale || "es");
     setMenuContent(content);
   }, []);
 

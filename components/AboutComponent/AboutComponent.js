@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { getAboutContent, getSkills } from "../../api/aboutApi";
 
 export default function AboutComponent() {
-  const [lan, setLan] = useState("es");
+  const router = useRouter();
   const [pageContent, setPageContent] = useState({});
 
   useEffect(() => {
-    const content = getAboutContent(lan);
+    const content = getAboutContent(router.locale || "es");
     setPageContent(content);
   }, []);
 

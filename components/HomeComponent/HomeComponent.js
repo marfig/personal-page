@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { getHomeContent } from "../../api/homeApi";
 
 export default function HomeComponent() {
-  const [lan, setLan] = useState("es");
   const [pageContent, setPageContent] = useState({});
+  const router = useRouter();
 
   useEffect(() => {
-    const content = getHomeContent(lan);
+    const content = getHomeContent(router.locale || "es");
     setPageContent(content);
-  }, []);
+  }, [router?.locale]);
 
   return (
     <section id="home">

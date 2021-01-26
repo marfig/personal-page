@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react/cjs/react.development";
+import { useRouter } from "next/router";
 import { getAllExperiences, getWorkContent } from "../../api/workExperienceApi";
 
 export default function WorkComponent() {
-  const [lan, setLan] = useState("es");
+  const router = useRouter();
   const [experiences, setExperiences] = useState([]);
   const [pageContent, setPageContent] = useState({});
 
   useEffect(() => {
-    const content = getWorkContent(lan);
+    const content = getWorkContent(router.locale || "es");
     setPageContent(content);
-    const result = getAllExperiences(lan);
+    const result = getAllExperiences(router.locale || "es");
     setExperiences(result);
   }, []);
 
