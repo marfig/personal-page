@@ -9,10 +9,18 @@ import {
   faEnvelope,
   faLaptop,
 } from "@fortawesome/free-solid-svg-icons";
+import { getMainMenuContent } from "../../../api/menuApi";
 
 export default function MainMenu() {
+  const [lan, setLan] = useState("es");
+  const [menuContent, setMenuContent] = useState({});
   const [menuActive, setMenuActive] = useState("home");
   const { pathname } = useRouter();
+
+  useEffect(() => {
+    const content = getMainMenuContent(lan);
+    setMenuContent(content);
+  }, []);
 
   useEffect(() => {
     setMenuActive(pathname);
@@ -28,7 +36,7 @@ export default function MainMenu() {
                 menuActive === "/home" || menuActive === "/" ? "active" : ""
               }
             >
-              <span>HOME</span>
+              <span>{menuContent.home}</span>
               <FontAwesomeIcon icon={faHome} />
             </a>
           </Link>
@@ -36,7 +44,7 @@ export default function MainMenu() {
         <li>
           <Link href="/about">
             <a className={menuActive === "/about" ? "active" : ""}>
-              <span>ABOUT</span>
+              <span>{menuContent.about}</span>
               <FontAwesomeIcon icon={faUser} />
             </a>
           </Link>
@@ -44,7 +52,7 @@ export default function MainMenu() {
         <li>
           <Link href="/work">
             <a className={menuActive === "/work" ? "active" : ""}>
-              <span>WORKS</span>
+              <span>{menuContent.work}</span>
               <FontAwesomeIcon icon={faLaptop} />
             </a>
           </Link>
@@ -52,7 +60,7 @@ export default function MainMenu() {
         <li>
           <Link href="/portfolio">
             <a className={menuActive === "/portfolio" ? "active" : ""}>
-              <span>CODE</span>
+              <span>{menuContent.code}</span>
               <FontAwesomeIcon icon={faCode} />
             </a>
           </Link>
@@ -60,7 +68,7 @@ export default function MainMenu() {
         <li>
           <Link href="/contact">
             <a className={menuActive === "/contact" ? "active" : ""}>
-              <span>CONTACT</span>
+              <span>{menuContent.contact}</span>
               <FontAwesomeIcon icon={faEnvelope} />
             </a>
           </Link>

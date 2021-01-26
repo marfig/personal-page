@@ -2,6 +2,22 @@ import { GITHUB_REPO, GITLAB_REPO } from "../utils/constants";
 import { listReposApi } from "./gitHubApi";
 import { listProjectsApi } from "./gitLabApi";
 
+export function getPortfolioContent(lan) {
+  const items = [
+    {
+      title: "Repositorios",
+      loadingText: "Cargando...",
+      lan: "es",
+    },
+    {
+      title: "Repositories",
+      loadingText: "Loading...",
+      lan: "en",
+    },
+  ];
+  return items.filter((c) => c.lan === lan)[0];
+}
+
 export async function listAllRepoApi() {
   const list_filter_lab = [
     "tienda-servicios",

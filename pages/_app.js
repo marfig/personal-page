@@ -1,13 +1,21 @@
+import { useState, useEffect } from "react";
 import Router from "next/router";
-import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "../scss/global.scss";
 import "react-toastify/dist/ReactToastify.css";
 import BasicLayout from "../layouts/BasicLayout/BasicLayout";
 import Loader from "../components/Loader";
+import { getLoaderContent } from "../api/loaderApi";
 
 export default function MyApp({ Component, pageProps }) {
+  const [lan, setLan] = useState("es");
+  const [loaderContent, setLoaderContent] = useState({});
   const [loadingPage, setLoadingPage] = useState(false);
+
+  useEffect(() => {
+    const content = getLoaderContent(lan);
+    setLoaderContent(content);
+  }, []);
 
   Router.onRouteChangeStart = (url) => {
     setLoadingPage(true);
@@ -18,7 +26,7 @@ export default function MyApp({ Component, pageProps }) {
   };
 
   if (loadingPage) {
-    return <Loader>Loading...</Loader>;
+    return <Loader>{loaderContent.text}</Loader>;
   }
 
   return (

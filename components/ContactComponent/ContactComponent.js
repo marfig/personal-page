@@ -1,30 +1,40 @@
+import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 import ButtonPimary from "../ButtonPrimary/ButtonPimary";
 import SimpleMap from "../Maps/SimpleMap";
 import { sendEmailApi } from "../../api/emailApi";
+import { getContactContent } from "../../api/contactApi";
 
 export default function ContactComponent() {
+  const [lan, setLan] = useState("es");
+  const [pageContent, setPageContent] = useState({});
+
+  useEffect(() => {
+    const content = getContactContent(lan);
+    setPageContent(content);
+  }, []);
+
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
     onSubmit: async (formData) => {
       try {
-        toast.info("One moment please. Your message is being sent...");
+        toast.info(pageContent.wait);
 
         const result = await sendEmailApi(formData);
 
         if (result.status !== 200 && result.status !== 201) {
-          toast.error("An error ocurred. Please try again later");
+          toast.error(pageContent.errorSend);
           return;
         }
 
-        toast.success("Message sended. Thank you for your contact!");
+        toast.success(pageContent.messageSeneded);
 
         formik.resetForm();
       } catch (error) {
-        toast.error("An error ocurred. Please try again later");
+        toast.error(pageContent.errorSend);
       }
     },
   });
@@ -33,19 +43,15 @@ export default function ContactComponent() {
     <section id="contact">
       <div className="content">
         <div className="contact-form">
-          <h1>Contact me</h1>
-          <p>
-            The standard chunk of Lorem Ipsum used since the 1500s is reproduced
-            below for those interested. Sections 1.10.32 and 1.10.33 from "de
-            Finibus Bonorum et Malorum"
-          </p>
+          <h1>{pageContent.title}</h1>
+          <p>{pageContent.comment}</p>
           <form onSubmit={formik.handleSubmit}>
             <input
               className={formik.errors.name ? "has-error" : ""}
               autoComplete="new_name"
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder={pageContent.name}
               value={formik.values.name}
               onChange={formik.handleChange}
             />
@@ -55,7 +61,7 @@ export default function ContactComponent() {
               autoComplete="off"
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={pageContent.email}
               value={formik.values.email}
               onChange={formik.handleChange}
             />
@@ -64,19 +70,19 @@ export default function ContactComponent() {
               autoComplete="off"
               type="text"
               name="subject"
-              placeholder="Subject"
+              placeholder={pageContent.subject}
               value={formik.values.subject}
               onChange={formik.handleChange}
             />
             <textarea
               className={formik.errors.message ? "has-error" : ""}
               name="message"
-              placeholder="Message"
+              placeholder={pageContent.message}
               value={formik.values.message}
               onChange={formik.handleChange}
             ></textarea>
             <div className="actions">
-              <ButtonPimary type="submit">Send</ButtonPimary>
+              <ButtonPimary type="submit">{pageContent.send}</ButtonPimary>
             </div>
           </form>
         </div>

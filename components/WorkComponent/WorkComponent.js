@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react/cjs/react.development";
-import { getAllExperiences } from "../../api/workExperienceApi";
+import { getAllExperiences, getWorkContent } from "../../api/workExperienceApi";
 
 export default function WorkComponent() {
+  const [lan, setLan] = useState("es");
   const [experiences, setExperiences] = useState([]);
+  const [pageContent, setPageContent] = useState({});
 
   useEffect(() => {
-    const result = getAllExperiences();
+    const content = getWorkContent(lan);
+    setPageContent(content);
+    const result = getAllExperiences(lan);
     setExperiences(result);
   }, []);
 
@@ -13,7 +17,7 @@ export default function WorkComponent() {
     <section id="work">
       <div className="content">
         <div className="container">
-          <h1>Work Experience</h1>
+          <h1>{pageContent.title}</h1>
           <div className="experience">
             <ul>
               {experiences.map((item, index) => (

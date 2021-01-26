@@ -1,34 +1,28 @@
 import { useState, useEffect } from "react";
-import { getSkills } from "../../api/aboutApi";
+import { getAboutContent, getSkills } from "../../api/aboutApi";
 
 export default function AboutComponent() {
+  const [lan, setLan] = useState("es");
+  const [pageContent, setPageContent] = useState({});
+
+  useEffect(() => {
+    const content = getAboutContent(lan);
+    setPageContent(content);
+  }, []);
+
   return (
     <section id="about">
       <div className="content">
         <div className="container">
           <div className="descript">
-            <h1>About</h1>
-            <div className="info">
-              <p>
-                The standard chunk of Lorem Ipsum used since the 1500s is
-                reproduced below for those interested. Sections 1.10.32 and
-                1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
-                reproduced in their exact original form, accompanied by English
-                versions from the 1914 translation by H. Rackham.
-              </p>
-              <p>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum."
-              </p>
-            </div>
+            <h1>{pageContent.title}</h1>
+            <div
+              className="info"
+              dangerouslySetInnerHTML={{ __html: pageContent.descript }}
+            />
           </div>
           <div className="skill-content">
-            <Skills />
+            <Skills title={pageContent.titleSkill} />
           </div>
         </div>
       </div>
@@ -36,7 +30,7 @@ export default function AboutComponent() {
   );
 }
 
-function Skills() {
+function Skills({ title }) {
   const [listSkills, setListSkills] = useState([]);
   const [barProgress, setBarProgress] = useState("bar-progress-init");
 
@@ -54,7 +48,7 @@ function Skills() {
 
   return (
     <div className="skill">
-      <h3>Skills</h3>
+      <h3>{title}</h3>
 
       {listSkills &&
         listSkills.map((skill, index) => (
