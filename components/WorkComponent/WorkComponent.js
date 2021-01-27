@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react/cjs/react.development";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { getAllExperiences, getWorkContent } from "../../api/workExperienceApi";
 
@@ -10,6 +10,9 @@ export default function WorkComponent() {
   useEffect(() => {
     const content = getWorkContent(router.locale || "es");
     setPageContent(content);
+  }, []);
+
+  useEffect(() => {
     const result = getAllExperiences(router.locale || "es");
     setExperiences(result);
   }, []);
