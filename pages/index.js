@@ -1,5 +1,11 @@
 import HomeComponent from "../components/HomeComponent";
+import Seo from "../components/Seo";
 
 export default function Home() {
-  return <HomeComponent />;
+  return (
+    <>
+      <Seo title="Marvin - Home" />
+      <HomeComponent />;
+    </>
+  );
 }

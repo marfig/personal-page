@@ -15,7 +15,7 @@ export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const content = getLoaderContent(router.locale || "es");
     setLoaderContent(content);
-  }, []);
+  }, [router.locale]);
 
   Router.onRouteChangeStart = (url) => {
     setLoadingPage(true);
