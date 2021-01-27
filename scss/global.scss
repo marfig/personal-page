@@ -1,5 +1,21 @@
 @import "./index.scss";
 
+@font-face {
+  font-family: "Raleway";
+  src: url("/fonts/Raleway/Raleway-VariableFont_wght.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("/fonts/Bebas_Neue/BebasNeue-Regular.ttf");
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+}
+
 * {
   margin: 0;
   padding: 0;
