@@ -5,7 +5,7 @@ export default function work() {
   return (
     <>
       <Seo title="Marvin - Works" />
-      <WorkComponent />
+      {/* <WorkComponent /> */}
     </>
   );
 }
