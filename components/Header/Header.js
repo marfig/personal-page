@@ -7,8 +7,9 @@ export default function Header() {
     <header>
       <div className="sidebar">
         <Link href="/">
-          <a className="logo">Mf</a>
+          <img src="/img/logo.png" alt="logo" className="logo" />
         </Link>
+
         <MainMenu />
 
         <SocialMenu />

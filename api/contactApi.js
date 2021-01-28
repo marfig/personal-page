@@ -2,7 +2,8 @@ export function getContactContent(lan) {
   const items = [
     {
       title: "Contacto",
-      comment: "Alguna leyenda en español. Por definir.",
+      comment: `Si tiene alguna consulta o solicitud, por favor póngase en contacto 
+      conmigo utilizando el formulario a continuación.`,
       name: "Nombre",
       email: "Email",
       subject: "Asunto",
@@ -15,8 +16,7 @@ export function getContactContent(lan) {
     },
     {
       title: "Contact me",
-      comment:
-        "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from",
+      comment: `If you have any questions or requests, please contact with me using below form either.`,
       name: "Name",
       email: "Email",
       subject: "Subject",

@@ -19,20 +19,10 @@ header {
     }
 
     .logo {
-      display: block;
-      background-color: $dark-absolute;
-      padding: 5px 5px 0 5px;
-      font-size: 50px;
-      color: $primary;
-      text-decoration: none;
-      font-weight: bold;
-      text-align: center;
-      font-family: "Bebas Neue", sans-serif, cursive;
+      width: 50px;
+      cursor: pointer;
 
       @media (min-width: 837px) {
-        font-size: 70px;
-        padding: 0;
-        padding-top: 5px;
         width: 100%;
       }
     }

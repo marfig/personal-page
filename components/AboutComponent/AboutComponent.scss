@@ -39,6 +39,11 @@
           overflow-x: auto;
           width: 85%;
 
+          p {
+            margin-bottom: 20px;
+            text-align: left;
+          }
+
           &::-webkit-scrollbar {
             display: none;
           }

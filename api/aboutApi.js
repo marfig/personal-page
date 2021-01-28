@@ -2,16 +2,23 @@ export function getAboutContent(lan) {
   const items = [
     {
       title: "Sobre mí",
-      descript: `<p>Soy Ingeniero en Informática, me dedico al desarrollo de Sistemas Informáticos desde hace más de 10 años.</p>
-      <p>He formado parte de diferentes proyectos en empresas y por cuenta propia, brindando soluciones a las necesidades de negocio mediante la Tecnología de la Información.</p>
-      <p>Me especializo en Desarrollo Web y herramientas .Net, pero me gusta aprender e incursionar constantemente en diferentes herramientas.</p>
-      <p>Algunas de las tecnologías que utilizo son C#, .Net MVC, .Net Core, HTML, CSS, Javascript, NodeJS, React, Angular, SQL Server, Postgres SQL, MySQL, Oracle, MongoDB.</p>`,
+      descript: `<p>¡Hola!</p>
+      <p>Mi nombre es Marvin Figueredo</p>
+      <p>Soy Ingeniero en Informática, me dedico profesionalmente al desarrollo de Sistemas Informáticos desde el año 2008.</p>
+      <p>Mi experiencia principal tiene que ver con Aplicaciones Web empresariales. Me tocó trabajar sobre todo como Backend con C# y .Net, 
+      aunque también he trabajado en interfaces con HTML, CSS y Javascript.</p>
+      <p>En proyectos personales además he utilizado herramientas como React y Next JS.</p>`,
       titleSkill: "Habilidades",
       lan: "es",
     },
     {
-      title: "About me",
-      descript: "<p>Hello, I'm Marvin</p>",
+      title: "About",
+      descript: `<p>Hello!</p>
+      <p>My name is Marvin Figueredo.</p>
+      <p>I'm a Computer Engineer, I'm professionally dedicated to the development of Computer Systems since 2008.</p>
+      <p>My main experience has to do with Enterprise Web Applications. I work mainly as a Backend with C# and dotnet, 
+      however I have also worked on interfaces with HTML, CSS and Javascript.</p>
+      <p>In personal projects I have also used tools like React and Next JS.</p>`,
       titleSkill: "Skills",
       lan: "en",
     },
