@@ -27,7 +27,6 @@ export async function listAllRepoApi() {
     "my-taxes",
   ];
   const list_filter_hub = [
-    "concurrency-sample",
     "mis-metas",
     "personal-page",
     "historial-clinico",
