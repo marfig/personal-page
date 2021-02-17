@@ -26,7 +26,9 @@ export async function listAllRepoApi() {
     "hotel-react-gatsby",
     "my-taxes",
   ];
+
   const list_filter_hub = [
+    "concurrency-sample",
     "mis-metas",
     "personal-page",
     "historial-clinico",
