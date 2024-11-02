@@ -92,7 +92,7 @@ export default function ContactComponent() {
             <div className="info">
               <p>San Lorenzo, Paraguay</p>
             </div>
-            <SimpleMap />
+            
           </div>
         </div>
       </div>
